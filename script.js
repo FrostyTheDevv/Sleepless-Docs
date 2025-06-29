@@ -31,6 +31,7 @@ window.addEventListener('storage', (e) => {
   }
 });
 
+// Initial load
 loadData();
 
 
@@ -65,7 +66,8 @@ function activateButton(activeBtn) {
   activeBtn.classList.add('active');
 }
 
-// ─── Render Command Cards ──────────────────────────────────
+
+// ─── Render Command Cards (with Alphabetical Sort) ────────
 function renderCards() {
   const term = document.getElementById('search').value.toLowerCase();
   const out  = document.getElementById('cards');
@@ -80,6 +82,7 @@ function renderCards() {
          )) return false;
       return true;
     })
+    .sort((a, b) => a.name.localeCompare(b.name))  // ← alphabetical sort
     .forEach(cmd => {
       const card = document.createElement('div');
       card.className = 'card';
@@ -98,6 +101,7 @@ function renderCards() {
 // ─── Search Input Handler ─────────────────────────────────
 document.getElementById('search')
         .addEventListener('input', renderCards);
+
 
 // ─── Helper to create buttons ──────────────────────────────
 function createButton(text, onClick) {

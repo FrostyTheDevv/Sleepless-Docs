@@ -1,0 +1,58 @@
+{
+  "categories": [
+    { "id": "server",     "name": "Server" },
+    { "id": "moderation", "name": "Moderation" },
+    { "id": "fun",        "name": "Fun" },
+    { "id": "info",       "name": "Information" }
+  ],
+  "commands": [
+    {
+      "id": "prefix",
+      "name": "prefix",
+      "description": "View guild prefix",
+      "args": [],
+      "perms": [],
+      "categoryId": "server"
+    },
+    {
+      "id": "prefix-set",
+      "name": "prefix set",
+      "description": "Set command prefix for server",
+      "args": ["prefix"],
+      "perms": ["Administrator"],
+      "categoryId": "server"
+    },
+    {
+      "id": "ban",
+      "name": "ban",
+      "description": "Ban a user",
+      "args": ["user", "reason"],
+      "perms": ["Ban Members"],
+      "categoryId": "moderation"
+    },
+    {
+      "id": "kick",
+      "name": "kick",
+      "description": "Kick a user",
+      "args": ["user", "reason"],
+      "perms": ["Kick Members"],
+      "categoryId": "moderation"
+    },
+    {
+      "id": "joke",
+      "name": "joke",
+      "description": "Tell a random joke",
+      "args": [],
+      "perms": [],
+      "categoryId": "fun"
+    },
+    {
+      "id": "avatar",
+      "name": "avatar",
+      "description": "Display a user's avatar",
+      "args": ["user"],
+      "perms": [],
+      "categoryId": "info"
+    }
+  ]
+}

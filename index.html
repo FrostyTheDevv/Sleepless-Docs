@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Commands</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="logo.svg" alt="Sleepless Logo" class="logo-img">
+
+    <h1 class="title">Sleepless Commands</h1>
+
+    <!-- terminal icon -->
+    <span class="header-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           width="24" height="24"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <polyline points="8 10 12 14 8 18"/>
+        <line x1="16" y1="8" x2="16" y2="8"/>
+      </svg>
+    </span>
+
+    <input
+      id="search"
+      type="text"
+      placeholder="Search commands…"
+      aria-label="Search commands"
+    >
+  </header>
+
+  <nav id="categoryBar" class="category-bar"></nav>
+  <main id="cards" class="cards"></main>
+
+  <footer class="footer-note">Made by Frosty</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  /* Pure-black backgrounds */
+  --bg:          #000000;
+  --card-bg:     #000000;
+
+  /* Teal accent & text */
+  --fg:          #2dd4bf;
+  --accent:      #2dd4bf;
+
+  /* Light border for cards & bar */
+  --card-border: rgba(255,255,255,0.1);
+
+  /* Easing for transitions */
+  --transition:  0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* === HEADER === */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Logo image */
+.logo-img {
+  height: 2.5rem;
+  width: auto;
+  margin-right: 1rem;
+}
+
+/* Page title */
+.header .title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Search input */
+.header input {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: var(--fg);
+  width: 250px;
+  transition: border-color var(--transition);
+}
+
+.header input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Terminal‐style icon */
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--fg);
+  transition: background var(--transition), color var(--transition);
+}
+
+.header-icon:hover {
+  background: rgba(45,212,191,0.1);
+  color: var(--accent);
+}
+
+.header-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+}
+
+/* === CATEGORY BAR === */
+.category-bar {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  background: var(--bg);
+  padding: 0.5rem 1rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0.5rem auto;
+  border-radius: 9999px;
+  border: 1px solid var(--card-border);
+  justify-content: flex-start;
+}
+
+/* Scrollbar styling */
+.category-bar::-webkit-scrollbar {
+  height: 6px;
+}
+.category-bar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+.category-bar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.category-bar button {
+  flex: 0 0 auto;
+  background: none;
+  border: none;
+  padding: 0.4rem 1rem;
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--fg);
+  cursor: pointer;
+  border-radius: 6px;
+  border-bottom: 2px solid transparent;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.category-bar button:hover {
+  background: rgba(45,212,191,0.1);
+  color: var(--accent);
+}
+
+.category-bar button.active {
+  background: rgba(45,212,191,0.15);
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+/* === CARDS GRID === */
+.cards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.6);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.card .desc {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: #aaa;
+}
+
+.card .field {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+.card .value {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* === ADMIN OVERRIDES === */
+.admin-container {
+  padding: 2rem;
+}
+
+.admin-section {
+  margin-bottom: 2rem;
+}
+
+.admin-section h2 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.admin-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.admin-form input,
+.admin-form select {
+  flex: 1 1 200px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background: #222;
+  color: var(--fg);
+}
+
+.admin-form button {
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--card-bg);
+  color: var(--fg);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.admin-form button:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* === DOWNLOAD BUTTON === */
+.btn-download {
+  display: inline-block;
+  margin: 0 1rem 2rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-download:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* === FOOTER NOTE === */
+.footer-note {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* === RESPONSIVE MOBILE STYLES === */
+@media (max-width: 768px) {
+  /* Header: wrap items vertically */
+  .header {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+  .logo-img {
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
+  .header .title {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+  .header-icon {
+    margin-left: 0;
+    margin-bottom: 0.75rem;
+  }
+  .header input {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  /* Category bar: full width, less side padding */
+  .category-bar {
+    width: auto;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem;
+  }
+
+  /* Cards: single column */
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* Card padding slightly reduced */
+  .card {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin – Commands</title>
+  <!-- Google Font & core styles -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Admin-specific overrides */
+    .admin-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .admin-section {
+      margin-bottom: 2.5rem;
+    }
+    .admin-section h2 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .admin-list li {
+      background: #1b1f24;
+      padding: .6rem 1rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      margin-bottom: .5rem;
+    }
+    .admin-list li span {
+      flex: 1;
+    }
+    .admin-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .75rem;
+      align-items: center;
+    }
+    .admin-form input,
+    .admin-form select {
+      flex: 1 1 200px;
+      padding: .5rem;
+      border-radius: 4px;
+      border: 1px solid #333;
+      background: #222;
+      color: var(--fg);
+    }
+    .admin-form button {
+      flex: 0 0 auto;
+      padding: .5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background: var(--card-bg);
+      color: var(--fg);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition);
+    }
+    .admin-form button:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Header with Logo -->
+  <header class="header">
+    <img src="logo.svg" alt="Logo" class="logo-img">
+    <h1 class="title">Admin Panel</h1>
+  </header>
+
+  <!-- Admin Content -->
+  <div class="admin-container">
+    <!-- Categories -->
+    <section id="category-admin" class="admin-section">
+      <h2>Categories</h2>
+      <ul id="category-list" class="admin-list"></ul>
+      <div class="admin-form">
+        <input
+          id="new-cat-id"
+          placeholder="ID (no spaces)"
+          aria-label="New category ID"
+        >
+        <input
+          id="new-cat-name"
+          placeholder="Name"
+          aria-label="New category name"
+        >
+        <button type="button" id="add-cat">Add Category</button>
+      </div>
+    </section>
+
+    <!-- Commands -->
+    <section id="command-admin" class="admin-section">
+      <h2>Commands</h2>
+      <ul id="command-list" class="admin-list"></ul>
+      <div class="admin-form">
+        <input
+          id="cmd-id"
+          placeholder="Command ID"
+          aria-label="Command ID"
+        >
+        <input
+          id="cmd-name"
+          placeholder="Name"
+          aria-label="Command name"
+        >
+        <input
+          id="cmd-desc"
+          placeholder="Description"
+          aria-label="Command description"
+        >
+        <input
+          id="cmd-args"
+          placeholder="Args (comma separated)"
+          aria-label="Command arguments"
+        >
+        <input
+          id="cmd-perms"
+          placeholder="Perms (comma separated)"
+          aria-label="Command permissions"
+        >
+        <select
+          id="cmd-cat"
+          aria-label="Command category"
+        ></select>
+        <button type="button" id="add-cmd">Add Command</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Made by Frosty Badge -->
+  <footer class="footer-note">Made by Frosty</footer>
+
+  <!-- Admin Logic -->
+  <script src="admin.js"></script>
+</body>
+</html>
